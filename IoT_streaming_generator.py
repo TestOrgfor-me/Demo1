@@ -9,7 +9,7 @@ import os
 list_of_city = ['Kyiv', 'Lviv', 'Odessa']
 
 
-def iot_streaming_data():
+def iot_streaming_data(): # generate streaming random data as IoT devices 
     while True:
         data = {'type': 'weather',
                 'city': list_of_city[randint(0, len(list_of_city) - 1)],
@@ -18,7 +18,7 @@ def iot_streaming_data():
                 'hum': randint(0, 100),
                 'time': str(datetime.now())}
 
-        r = requests.post(os.environ['FAAS'] + '/async-function/stream-mod', json.dumps(data))
+        r = requests.post(os.environ['FAAS'] + '/async-function/stream-mod', json.dumps(data)) # connect with env to async-function stream-mod
         print(r.status_code, "Data sent!")
         time.sleep(1)
 
