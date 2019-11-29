@@ -23,4 +23,5 @@ def iot_streaming_data():
         time.sleep(1)
 
 
+        
 iot_streaming_data()
